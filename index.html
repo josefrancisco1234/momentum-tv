@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Momentum TV Fight</title>
+<meta name="description" content="Cada sparring de su academia, convertido en contenido de valor. Cámara, pantalla de autoservicio e inteligencia artificial para academias de box, muay thai y MMA.">
+<meta property="og:title" content="Momentum TV Fight · Propuesta para academias">
+<meta property="og:description" content="Cada sparring de su academia, convertido en contenido de valor. Su academia recibe el 20% de cada venta, sin invertir en equipos.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://josefrancisco1234.github.io/momentum-tv/media/og.jpg">
+<meta property="og:url" content="https://josefrancisco1234.github.io/momentum-tv/">
+<link rel="icon" href="media/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: página de venta vertical para dueños de gym; un solo tema oscuro como el ring de noche, el rojo de marca solo en acentos */
+:root {
+  --bg: #0E0809;
+  --panel: #1B0E10;
+  --panel-2: #2B1215;
+  --line: #4D262B;
+  --fg: #FBF6F6;
+  --muted: #C7AEB1;
+  --red: #C8102E;
+  --red-hi: #FF5A63;
+  --brand: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+  --head: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Barlow", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--head); font-weight: 700; font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: var(--red-hi); margin: 0 0 10px; }
+h1, h2, h3 { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .01em; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(38px, 6.4vw, 66px); line-height: 1.02; }
+h2 { font-size: clamp(30px, 4.4vw, 44px); line-height: 1.05; margin-bottom: 14px; }
+h3 { font-size: 22px; line-height: 1.15; }
+p { margin: 0; }
+.lede { color: var(--muted); font-size: 19px; max-width: 62ch; }
+.muted { color: var(--muted); }
+.small { font-size: 14px; color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: 36px 56px; border-top: 0; }
+.hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 40px; align-items: center; }
+.logo { width: min(340px, 80%); height: auto; display: block; margin-bottom: 28px; }
+.hero h1 em { font-style: normal; color: var(--red-hi); }
+.hero .lede { margin-top: 18px; }
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 30px; }
+.fact { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 14px 12px; min-width: 0; }
+.fact b { display: block; font-family: var(--head); font-size: 32px; line-height: 1; color: var(--fg); }
+.fact span { font-size: 14px; color: var(--muted); }
+.phone { width: 100%; max-width: 300px; aspect-ratio: 9 / 16; margin-inline: auto; border-radius: 26px; border: 8px solid #000; background: #000; overflow: hidden; box-shadow: 0 0 0 1px var(--line), 0 24px 60px rgba(200, 16, 46, .25); }
+.phone video, .vbox video { width: 100%; height: 100%; object-fit: cover; display: block; background: #000; }
+
+/* Productos */
+.products { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 16px; margin-top: 28px; align-items: start; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: grid; gap: 12px; min-width: 0; }
+.vbox { border-radius: 10px; overflow: hidden; background: #000; max-width: 100%; }
+.v169 { aspect-ratio: 16 / 9; }
+.v916 { aspect-ratio: 9 / 16; }
+.tag { display: inline-block; font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--red); border-radius: 6px; padding: 3px 9px; justify-self: start; }
+
+/* Métricas */
+.two { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; margin-top: 28px; align-items: start; }
+.stack { display: grid; gap: 14px; min-width: 0; }
+.statcard { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); display: block; }
+.status { display: grid; gap: 10px; }
+.status div { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.pill { font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; border-radius: 999px; padding: 2px 10px; margin-right: 8px; }
+.pill.ok { background: #1F3A24; color: #8BE39A; }
+.pill.dev { background: #3A2A12; color: #F5C46A; }
+
+/* Pasos */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 26px; counter-reset: s; }
+.step { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0; }
+.step::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--red); font-family: var(--head); font-weight: 700; font-size: 18px; margin-bottom: 10px; }
+.step h3 { font-size: 19px; margin-bottom: 4px; }
+.step p { font-size: 15px; color: var(--muted); }
+.photos { display: grid; grid-template-columns: .75fr 1.25fr; gap: 14px; margin-top: 16px; }
+.photos img { width: 100%; height: 100%; max-height: 420px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); display: block; }
+
+.camspot { display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: 24px; align-items: center; margin-top: 22px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.camspot img { width: 100%; height: auto; border-radius: 10px; display: block; max-width: 100%; }
+.camspot b { color: var(--fg); }
+.ticks { margin: 4px 0 0; padding-left: 18px; display: grid; gap: 8px; }
+.ticks li::marker { color: var(--red-hi); }
+@media (max-width: 860px) { .camspot { grid-template-columns: 1fr; } }
+
+/* Comparación */
+.versus { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
+.versus > div { border-radius: 14px; padding: 20px; min-width: 0; }
+.without { background: var(--panel); border: 1px solid var(--line); }
+.with { background: var(--panel-2); border: 1.5px solid var(--red); }
+.versus h3 { margin-bottom: 12px; }
+.versus ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.versus li b { display: block; font-weight: 600; }
+.versus li span { font-size: 15px; color: var(--muted); }
+.without li b { color: #E9A3A8; }
+.highlight { color: var(--red-hi); }
+
+.deal { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
+.deal > div { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; min-width: 0; }
+.deal ul { margin: 12px 0 0; padding-left: 18px; display: grid; gap: 8px; }
+.deal li::marker { color: var(--red-hi); }
+
+/* Bola de nieve */
+.snow { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px; align-items: end; position: relative; }
+.snow::before { content: ""; position: absolute; left: 4%; right: 6%; bottom: 0; height: 120px; background: linear-gradient(to top right, transparent 49.5%, rgba(200, 16, 46, .18) 50%, transparent 50.5%); pointer-events: none; }
+.snow li { display: grid; justify-items: center; text-align: center; gap: 8px; min-width: 0; align-self: start; }
+.snow .ball { width: var(--s); height: var(--s); border-radius: 50%; display: grid; place-items: center; background: var(--panel-2); border: 1.5px solid var(--red); font-family: var(--head); font-weight: 700; font-size: calc(var(--s) * .38); line-height: 1; color: var(--fg); align-self: end; margin-top: calc(118px - var(--s)); }
+.snow .final .ball { background: var(--red); border-color: var(--red); font-size: 20px; text-transform: uppercase; box-shadow: 0 0 34px rgba(200, 16, 46, .45); }
+.snow b { font-size: 15px; line-height: 1.25; }
+.snow small { font-size: 13px; line-height: 1.35; color: var(--muted); }
+.snow .final b { color: var(--red-hi); }
+@media (max-width: 860px) {
+  .snow { grid-template-columns: 1fr; gap: 14px; }
+  .snow::before { display: none; }
+  .snow li { grid-template-columns: 96px 1fr; justify-items: start; text-align: left; align-items: center; column-gap: 14px; row-gap: 2px; }
+  .snow .ball { grid-row: span 2; justify-self: center; margin-top: 0; width: calc(var(--s) * .8); height: calc(var(--s) * .8); }
+  .snow .final .ball { font-size: 16px; }
+}
+
+/* Win-win */
+.win { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 14px; margin-top: 16px; align-items: stretch; }
+.win > div { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; min-width: 0; }
+.win > .mid { background: var(--panel-2); border: 1.5px solid var(--red); }
+.win .who { font-family: var(--head); font-weight: 700; font-size: 22px; text-transform: uppercase; margin-bottom: 10px; }
+.win .mid .who { color: var(--red-hi); }
+.win ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: 16px; }
+.win li::marker { color: var(--red-hi); }
+.aligned { margin-top: 18px; font-size: 19px; font-weight: 600; max-width: 70ch; border-left: 0; }
+@media (max-width: 860px) { .win { grid-template-columns: 1fr; } }
+
+/* Red nacional */
+.wheel { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 22px; }
+.wheel span { background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-weight: 600; font-size: 15px; }
+.wheel i { color: var(--red-hi); font-style: normal; font-weight: 700; }
+.wheel .core { background: var(--red); border-color: var(--red); }
+.cats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.cats span { border: 1px solid var(--red-hi); border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 600; }
+.prizes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+.prize { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.prize img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #fff; display: block; }
+.prize div { padding: 10px 12px; }
+.prize b { display: block; font-weight: 600; }
+.prize span { font-size: 14px; color: var(--muted); }
+.prize.text { place-content: center; text-align: center; padding: 18px; background: var(--panel-2); }
+.prize.text b { font-family: var(--head); font-size: 22px; text-transform: uppercase; }
+.prize.wide { grid-column: span 2; }
+.prize.wide img { aspect-ratio: 3 / 2; }
+.prize.ticket img { aspect-ratio: 3 / 1; object-fit: contain; background: #fff; }
+.prize.text { grid-template-rows: none; }
+.prize.text b { margin-bottom: 4px; }
+
+blockquote { margin: 0; font-family: var(--brand); font-size: clamp(22px, 3.2vw, 32px); line-height: 1.3; max-width: 30ch; text-wrap: balance; }
+.cta { background: var(--red); border-radius: 16px; padding: 28px; margin-top: 30px; display: grid; gap: 8px; }
+.cta h3 { font-size: 30px; }
+.cta p { font-size: 18px; }
+.contact { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 10px; }
+.contact .num { font-family: var(--head); font-weight: 700; font-size: 30px; letter-spacing: .02em; user-select: all; margin-right: 6px; }
+.btn { font-family: var(--head); font-weight: 700; font-size: 17px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--red); background: #fff; border: 2px solid #fff; border-radius: 999px; padding: 8px 18px; cursor: pointer; }
+.btn.ghost { background: transparent; color: #fff; }
+.btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; }
+footer img { width: 190px; height: auto; display: block; }
+
+@media (max-width: 860px) {
+  .hero-grid, .two, .versus, .deal, .photos { grid-template-columns: 1fr; }
+  .products { grid-template-columns: 1fr 1fr; }
+  .products .card:first-child { grid-column: 1 / -1; }
+  .facts, .steps { grid-template-columns: 1fr 1fr; }
+  .prizes { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .products { grid-template-columns: 1fr; }
+  section { padding-block: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { video { animation: none; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <img class="logo" src="media/logo.png" alt="Momentum TV Fight">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Propuesta comercial para academias de box, muay thai y MMA</p>
+        <h1>Cada sparring de su academia, convertido en <em>contenido de valor</em></h1>
+        <p class="lede">Instalamos una cámara y una pantalla de autoservicio junto a su ring. Al finalizar cada round, sus alumnos pueden adquirir el video de su sparring, clips para redes sociales y una edición profesional. Su academia recibe el 20% de cada venta, sin invertir en equipos.</p>
+        <div class="facts">
+          <div class="fact"><b>20%</b><span>de cada venta para la academia</span></div>
+          <div class="fact"><b>US$3k</b><span>en equipos a cargo de Momentum TV</span></div>
+          <div class="fact"><b>3</b><span>productos por cada sparring</span></div>
+          <div class="fact"><b>0</b><span>personal adicional requerido</span></div>
+        </div>
+      </div>
+      <div class="phone"><video data-src="media/fight_edit_azul.mp4" poster="media/poster_fight_edit_azul.jpg" muted loop playsinline preload="metadata" controls aria-label="Ejemplo de edición por peleador"></video></div>
+    </div>
+  </header>
+
+  <section id="productos">
+    <p class="eyebrow">Productos para el alumno</p>
+    <h2>Tres productos al finalizar cada round</h2>
+    <p class="lede">El proceso es completamente automático: el sistema identifica a cada peleador, selecciona los mejores intercambios y edita los videos sin intervención del personal.</p>
+    <div class="products">
+      <div class="card">
+        <span class="tag">1 · Sparring completo</span>
+        <div class="vbox v169"><video data-src="media/fight_raw.mp4" poster="media/poster_fight_raw.jpg" muted loop playsinline preload="metadata" controls aria-label="Ejemplo de sparring completo"></video></div>
+        <p class="muted">El round completo, con la marca de agua de la academia.</p>
+      </div>
+      <div class="card">
+        <span class="tag">2 · Clip para redes</span>
+        <div class="vbox v916"><video data-src="media/fight_clip1.mp4" poster="media/poster_fight_clip1.jpg" muted loop playsinline preload="metadata" controls aria-label="Ejemplo de clip para redes sociales"></video></div>
+        <p class="muted">Los mejores intercambios en formato vertical, listos para TikTok e Instagram.</p>
+      </div>
+      <div class="card">
+        <span class="tag">3 · Edición por peleador</span>
+        <div class="vbox v916"><video data-src="media/fight_edit_azul.mp4" poster="media/poster_fight_edit_azul.jpg" muted loop playsinline preload="metadata" controls aria-label="Ejemplo de edición por peleador"></video></div>
+        <p class="muted">Edición personalizada con zoom al peleador, cortes sincronizados con la música y su nombre.</p>
+      </div>
+    </div>
+    <p class="small" style="margin-top:14px">Ejemplos generados por nuestro sistema a partir de un sparring de referencia. Active el sonido de cada video para escuchar la música.</p>
+  </section>
+
+  <section id="metricas">
+    <p class="eyebrow">Analítica de rendimiento</p>
+    <h2>Estadísticas de cada round</h2>
+    <p class="lede">Mediante inteligencia artificial, el sistema reconoce a cada peleador y su postura cuadro a cuadro, y genera una tarjeta de estadísticas al estilo de las transmisiones profesionales.</p>
+    <div class="two">
+      <div class="stack">
+        <div class="vbox v169"><video data-src="media/fight_metrics.mp4" poster="media/poster_fight_metrics.jpg" muted loop playsinline preload="metadata" controls aria-label="Detección de peleadores con inteligencia artificial"></video></div>
+        <div class="status">
+          <div><span class="pill ok">Disponible en el piloto</span>Tiempo en clinch, presión y ritmo de cada round.</div>
+          <div><span class="pill dev">En desarrollo</span>Golpes lanzados y conectados, a la cabeza y al cuerpo. Se calibra con los sparrings de su academia.</div>
+        </div>
+      </div>
+      <img class="statcard" src="media/tarjeta.jpg" alt="Tarjeta de estadísticas del round con golpes, precisión y presión de cada peleador">
+    </div>
+  </section>
+
+  <section id="autoservicio">
+    <p class="eyebrow">Operación</p>
+    <h2>Un sistema de autoservicio que no requiere personal</h2>
+    <div class="camspot">
+      <img src="media/ring_camara.jpg" alt="Ring visto desde arriba con la cámara en una esquina alta cubriendo todo el ring y la pantalla al lado">
+      <div class="stack">
+        <h3>Ubicación de la cámara</h3>
+        <p class="muted">Una única cámara de 4MP se instala en una <b>esquina alta del ring</b>, orientada en diagonal. Desde esa posición cubre todo el ring y a ambos peleadores, sin interferir con el entrenamiento.</p>
+        <ul class="ticks">
+          <li>Montaje fijo por encima de las cuerdas; en jaulas, por encima de la malla.</li>
+          <li>La pantalla táctil se ubica junto al ring, a la vista de los alumnos.</li>
+          <li>Instalación en un día, de carácter permanente.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Grabación</h3><p>La cámara registra cada sparring de forma automática.</p></div>
+      <div class="step"><h3>Selección</h3><p>El peleador revisa su sparring, sus clips y su edición en la pantalla.</p></div>
+      <div class="step"><h3>Pago</h3><p>Yape, Plin o tarjeta, desde la misma pantalla.</p></div>
+      <div class="step"><h3>Entrega</h3><p>Recibe por WhatsApp un enlace único con todo su contenido.</p></div>
+    </div>
+    <div class="photos">
+      <img src="media/kiosko.jpg" alt="Pantalla de autoservicio Momentum TV en una academia">
+      <img src="media/gym.jpg" alt="Recepción de una academia con la pantalla Momentum TV">
+    </div>
+  </section>
+
+  <section id="gym">
+    <p class="eyebrow">Beneficios para la academia</p>
+    <h2>Cada sparring se convierte en publicidad para su academia</h2>
+    <div class="versus">
+      <div class="without">
+        <h3>Situación actual</h3>
+        <ul>
+          <li><b>Los sparrings no se registran</b><span>Lo que ocurre en el ring no queda documentado.</span></li>
+          <li><b>Presencia digital limitada</b><span>Las redes dependen de grabaciones esporádicas con celular.</span></li>
+          <li><b>Sin ingresos por contenido</b><span>La academia depende únicamente de las mensualidades.</span></li>
+          <li><b>Alto costo de captación</b><span>Cada alumno nuevo requiere inversión en publicidad.</span></li>
+        </ul>
+      </div>
+      <div class="with">
+        <h3>Con Momentum TV</h3>
+        <ul>
+          <li><b class="highlight">20% de cada venta</b><span>Un ingreso adicional por cada contenido que adquieren sus alumnos.</span></li>
+          <li><b>Su marca en cada video</b><span>Marca de agua en todo el contenido que se comparte en redes.</span></li>
+          <li><b>Contenido permanente</b><span>Cada sparring alimenta las redes de la academia.</span></li>
+          <li><b>Captación orgánica</b><span>Cada video compartido funciona como publicidad sin costo.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="deal">
+      <div>
+        <h3>Aporte de Momentum TV</h3>
+        <ul>
+          <li>Cámara 4MP y pantalla táctil junto al ring (aprox. US$3,000 en equipos)</li>
+          <li>Software de cobro y entrega automática</li>
+          <li>Highlights y métricas con inteligencia artificial</li>
+          <li>Difusión en nuestras redes, mantenimiento y soporte</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Aporte de la academia</h3>
+        <ul>
+          <li>Acceso al ring</li>
+          <li>Espacio, energía eléctrica e internet para el equipo</li>
+          <li>Instalación permanente junto al ring</li>
+          <li>Exclusividad contractual con Momentum TV</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="crecimiento">
+    <p class="eyebrow">Crecimiento orgánico</p>
+    <h2>Sus alumnos se convierten en embajadores de su academia</h2>
+    <p class="lede">Cada video que un alumno adquiere lleva la marca de la academia y se comparte en sus redes personales. Así, amigos, familiares y otros deportistas conocen dónde entrena. La academia gana visibilidad sin invertir en publicidad, y cada nuevo alumno genera más sparrings y más contenido.</p>
+    <h3 style="margin-top:34px">El efecto bola de nieve</h3>
+    <p class="muted" style="margin-top:6px;max-width:62ch">Cada etapa alimenta a la siguiente, y el resultado crece con cada sparring.</p>
+    <ol class="snow" aria-label="Efecto bola de nieve del crecimiento orgánico">
+      <li style="--s:46px"><span class="ball">1</span><b>Videos automáticos</b><small>Cada sparring genera contenido sin esfuerzo para nadie.</small></li>
+      <li style="--s:56px"><span class="ball">2</span><b>Los alumnos publican más</b><small>Contenido de calidad que quieren compartir en sus redes.</small></li>
+      <li style="--s:66px"><span class="ball">3</span><b>Publicidad orgánica</b><small>La marca de la academia llega a nuevas audiencias sin costo.</small></li>
+      <li style="--s:76px"><span class="ball">4</span><b>Más personas conocen la academia</b><small>Llegan nuevos alumnos y se realizan más sparrings.</small></li>
+      <li style="--s:86px"><span class="ball">5</span><b>Crece el deporte</b><small>Mayor visibilidad para el combate amateur en el Perú.</small></li>
+      <li style="--s:96px"><span class="ball">6</span><b>El sistema mejora</b><small>Cada video nos ayuda a calibrar y perfeccionar la inteligencia artificial.</small></li>
+      <li class="final" style="--s:118px"><span class="ball">Todos<br>ganan</span><b>Un modelo que funciona mejor cada mes</b><small>Más contenido, más alumnos y mejores videos para todos.</small></li>
+    </ol>
+
+    <h3 style="margin-top:38px">Un modelo en el que todos ganan</h3>
+    <div class="win">
+      <div>
+        <p class="who">El peleador</p>
+        <ul>
+          <li>Contenido de calidad profesional de cada sparring</li>
+          <li>Visibilidad a nivel nacional y acceso a premios</li>
+          <li>Material para analizar y mejorar su técnica</li>
+          <li>Paga únicamente por el contenido que elige</li>
+        </ul>
+      </div>
+      <div class="mid">
+        <p class="who">La academia</p>
+        <ul>
+          <li>20% de cada venta, sin inversión en equipos</li>
+          <li>Contenido diario para sus redes sociales</li>
+          <li>Captación de alumnos a través de los videos</li>
+          <li>Mayor retención: el progreso de cada alumno es visible</li>
+          <li>Un servicio diferencial frente a la competencia</li>
+        </ul>
+      </div>
+      <div>
+        <p class="who">Momentum TV</p>
+        <ul>
+          <li>Ingresos únicamente cuando los alumnos compran</li>
+          <li>Una red de academias en crecimiento a nivel nacional</li>
+          <li>Alcance para atraer patrocinadores y mejores premios</li>
+        </ul>
+      </div>
+    </div>
+    <p class="aligned">Los intereses están alineados: la academia no invierte en equipos, el peleador paga solo lo que elige y Momentum TV genera ingresos únicamente cuando la academia vende. El objetivo es común: más sparrings, más contenido y más alumnos.</p>
+  </section>
+
+  <section id="red">
+    <p class="eyebrow">Red nacional</p>
+    <h2>Su academia en la vitrina del deporte de combate peruano</h2>
+    <p class="lede">Las academias asociadas forman una sola red: un ranking mensual de los mejores momentos, concursos con premios y una vitrina del talento amateur para patrocinadores y promotoras.</p>
+    <div class="wheel" aria-label="Ciclo de crecimiento de la red">
+      <span>Más academias asociadas</span><i>›</i><span>Más contenido y peleadores</span><i>›</i><span>Mayor alcance nacional</span><i>›</i><span>Más patrocinios y premios</span><i>›</i><span class="core">Todo el país gana</span>
+    </div>
+
+    <h3 style="margin-top:34px">Concursos y sorteos mensuales</h3>
+    <p class="muted" style="margin-top:6px;max-width:62ch">El peleador adquiere su clip, lo publica en sus redes con #MomentumFight etiquetando a su academia, y cada publicación le otorga una participación en el sorteo del mes. Un jurado y la votación del público eligen los mejores momentos de cada categoría.</p>
+    <div class="cats"><span>Round del mes</span><span>Mejor clip</span><span>Revelación amateur</span><span>Academia del mes</span><span>Box · Muay thai · MMA</span></div>
+
+    <div class="prizes">
+      <div class="prize"><img src="media/guantes.jpg" alt="Guantes rojos Momentum"><div><b>Guantes</b><span>Merchandising Momentum</span></div></div>
+      <div class="prize"><img src="media/mochila.jpg" alt="Mochila roja Momentum"><div><b>Mochila</b><span>Merchandising Momentum</span></div></div>
+      <div class="prize"><img src="media/poleron.jpg" alt="Polerón rojo Momentum"><div><b>Polerón</b><span>Merchandising Momentum</span></div></div>
+      <div class="prize"><img src="media/maletin.jpg" alt="Maletín deportivo Momentum"><div><b>Maletín</b><span>Merchandising Momentum</span></div></div>
+      <div class="prize wide ticket"><img src="media/entrada_inka.jpg" alt="Entrada a una velada de MMA en Lima"><div><b>Entradas a veladas locales</b><span>MMA y box en Lima · imagen referencial</span></div></div>
+      <div class="prize wide ticket"><img src="media/entrada_ufc.jpg" alt="Entrada a un evento internacional de MMA"><div><b>Entradas a eventos internacionales</b><span>Grandes eventos de MMA · imagen referencial</span></div></div>
+      <div class="prize wide"><img src="media/viaje.jpg" alt="Ticket de viaje para el campeón nacional"><div><b>Viaje del año</b><span>Para el campeón nacional de la temporada</span></div></div>
+      <div class="prize text wide"><b>Eventos exclusivos</b><span>Acceso solo por invitación para la comunidad Momentum</span></div>
+    </div>
+  </section>
+
+  <section id="mision">
+    <p class="eyebrow">Nuestra misión</p>
+    <blockquote>Impulsar el deporte de combate en el Perú, brindando a cada peleador el contenido y la visibilidad de un profesional.</blockquote>
+  </section>
+
+  <section id="empezar">
+    <p class="eyebrow">Próximos pasos</p>
+    <h2>De la firma a la primera venta</h2>
+    <div class="steps">
+      <div class="step"><h3>Acuerdo</h3><p>Firma del convenio de socio exclusivo.</p></div>
+      <div class="step"><h3>Instalación</h3><p>Cámara, pantalla y software junto a su ring.</p></div>
+      <div class="step"><h3>Piloto</h3><p>Venta de contenido con tarifa piloto.</p></div>
+      <div class="step"><h3>Tarifa regular</h3><p>Ajuste de precios según los resultados del piloto.</p></div>
+    </div>
+    <div class="cta">
+      <h3>Agende una demostración en su academia</h3>
+      <p>Coordinemos una visita para evaluar su ring y presentarle el sistema en funcionamiento.</p>
+      <div class="contact">
+        <span class="num" id="num">+51 979 779 943</span>
+        <a class="btn" href="https://wa.me/51979779943" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+        <button class="btn ghost" type="button" id="copy">Copiar número</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="media/logo.png" alt="Momentum TV Fight">
+    <span>Momentum TV · La TV del deporte en una sola pantalla · WhatsApp +51 979 779 943</span>
+  </footer>
+</div>
+
+<script>
+const copyBtn = document.getElementById("copy");
+copyBtn.addEventListener("click", () => {
+  const done = () => { copyBtn.textContent = "Número copiado"; setTimeout(() => copyBtn.textContent = "Copiar número", 2000); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("num")); const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); copyBtn.textContent = "Número seleccionado"; };
+  try { navigator.clipboard.writeText("+51979779943").then(done, fallback); } catch (e) { fallback(); }
+});
+// El servidor no responde por rangos y los celulares (sobre todo iPhone) no reproducen así un video.
+// Por eso cada video se descarga completo cuando se acerca a la pantalla y se reproduce desde memoria (blob).
+const vids = [...document.querySelectorAll("video[data-src]")];
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const loading = new Map();
+function load(v) {
+  if (!loading.has(v)) {
+    loading.set(v, fetch(v.dataset.src)
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+      .then(b => { v.src = URL.createObjectURL(new Blob([b], { type: "video/mp4" })); })
+      .catch(() => { v.src = v.dataset.src; }));
+  }
+  return loading.get(v);
+}
+function play(v) {
+  load(v).then(() => { if (reduce) return; const p = v.play(); if (p && p.catch) p.catch(() => {}); });
+}
+if ("IntersectionObserver" in window) {
+  const near = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) load(e.target); }), { rootMargin: "600px 0px" });
+  const inView = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) play(v); else if (!v.paused) v.pause();
+  }), { threshold: 0.35 });
+  vids.forEach(v => { near.observe(v); inView.observe(v); });
+} else {
+  vids.forEach(play);
+}
+// Si el usuario toca play antes de que termine la descarga, igual arranca
+vids.forEach(v => v.addEventListener("play", () => { if (!v.src) play(v); }));
+</script>
+
+</body>
+</html>

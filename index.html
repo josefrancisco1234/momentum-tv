@@ -136,6 +136,12 @@ p { margin: 0; }
 .win li::marker { color: var(--red-hi); }
 .aligned { margin-top: 18px; font-size: 19px; font-weight: 600; max-width: 70ch; border-left: 0; }
 @media (max-width: 860px) { .win { grid-template-columns: 1fr; } }
+.refs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr); gap: 16px; margin-top: 26px; align-items: center; }
+.refs .card { max-width: 340px; }
+.roadmap { font-size: 17px; gap: 14px; }
+.roadmap b { color: var(--fg); }
+@media (max-width: 860px) { .refs { grid-template-columns: 1fr 1fr; } .refs .roadmap { grid-column: 1 / -1; } }
+@media (max-width: 480px) { .refs { grid-template-columns: 1fr; } .refs .card { max-width: none; } }
 
 /* Red nacional */
 .wheel { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 22px; }
@@ -228,6 +234,31 @@ footer img { width: 190px; height: auto; display: block; }
       </div>
     </div>
     <p class="small" style="margin-top:14px">Ejemplos generados por nuestro sistema a partir de un sparring de referencia. Active el sonido de cada video para escuchar la música.</p>
+  </section>
+
+  <section id="proximamente">
+    <p class="eyebrow">Próximamente</p>
+    <h2>Ediciones de nivel cinematográfico</h2>
+    <p class="lede">Nuestro motor de edición evoluciona de forma continua. Las próximas versiones incorporarán corrección de color, cámara lenta, transiciones y tipografía con el estilo de los mejores creadores de contenido deportivo, como en estas referencias.</p>
+    <div class="refs">
+      <div class="card">
+        <span class="tag">Estilo cinematográfico</span>
+        <div class="vbox v916"><video data-src="media/ref_cinematico.mp4" poster="media/poster_ref_cinematico.jpg" muted loop playsinline preload="metadata" controls aria-label="Referencia de edición cinematográfica en blanco y negro"></video></div>
+        <p class="muted">Blanco y negro, cortes al ritmo y textos minimalistas.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Estilo competencia</span>
+        <div class="vbox v916"><video data-src="media/ref_competencia.mp4" poster="media/poster_ref_competencia.jpg" muted loop playsinline preload="metadata" controls aria-label="Referencia de edición de highlights de competencia"></video></div>
+        <p class="muted">Highlights de alto impacto con el ritmo de una transmisión.</p>
+      </div>
+      <ul class="ticks roadmap">
+        <li><b>Corrección de color</b> con estilos predefinidos por academia.</li>
+        <li><b>Cámara lenta</b> automática en los golpes más limpios.</li>
+        <li><b>Transiciones y tipografía</b> animadas con la marca de la academia.</li>
+        <li><b>Música por estilo</b>, a elección del peleador.</li>
+      </ul>
+    </div>
+    <p class="small" style="margin-top:14px">Referencias de estilo de creadores de TikTok; no son producciones de Momentum TV.</p>
   </section>
 
   <section id="metricas">
